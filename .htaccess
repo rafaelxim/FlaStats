@@ -1,0 +1,6 @@
+RewriteBase /
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteRule ^noticias/([a-zA-Z0-9-]+)$ noticias.php?caminho=$1

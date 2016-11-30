@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head lang="pt-br">
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript" charset="utf8" src="js/bootstrap.min.js"></script>	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">	
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,500,700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" href="css/custom.css">
+	<!-- Script jQuery -->
+
+
+	<title> FlaStats | Entenda os critérios de estatísticas utilizados no site. </title>
+
+	<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-76145926-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+
+$( window ).scroll(function() {
+					var local = $( window ).scrollTop();
+					if ((local) < 30) 
+						{
+							$('#logoimg').slideDown();
+							$('#logoimg2').fadeOut(1);
+						}
+					else 
+					{
+					$('#logoimg').slideUp();					
+					$('#logoimg2').fadeIn(1500);
+					}
+				});
+});
+</script>
+
+</head>
+<body style="background: url(imagens/maraca.jpg) no-repeat center center fixed; 
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;">
+
+	
+		<!-- Menu de navegação -->
+		<div class="row">
+				<div class="col-md-12">
+					<nav class="navbar navbar-default navbar-fixed-top">
+						<div class="container-fluid" style="padding: 0px">
+							<!-- Brand and toggle get grouped for better mobile display -->
+							<div class="navbar-header">
+								<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+									<span class="sr-only">Toggle navigation</span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+								</button>
+								<a class="navbar-brand" href="#">
+									<img id="logoimg" alt="Brand" src="imagens/logosmall.png">
+							<img id="logoimg2" alt="Brand" src="imagens/logosmall.png">
+								</a>
+							</div>
+
+							<!-- Collect the nav links, forms, and other content for toggling -->
+							<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+								<ul class="nav navbar-nav">
+									<li class="hvr-overline-from-left"><a href="index.html">HOME <span class="sr-only">(current)</span></a></li>
+									<li class="hvr-overline-from-left"><a href="noticias_flamengo.html">NOTÍCIAS/COLUNAS </a></li>
+										<li class="hvr-overline-from-left"><a href="estatisticas.html">ESTATÍSTICAS</a></li>
+									<li class="hvr-overline-from-left"><a href="entenda.html">ENTENDA AS ESTATÍSTICAS</a></li>
+								</ul>	
+								<div class="socialbar">
+						<div id="seguirtwitter">
+							<a href="http://www.twitter.com/flastats_web" target="_blank"> 
+							<i class="fa fa-twitter"></i></a>
+						</div>
+						<div id="seguirfacebook">
+							<a href="http://www.facebook.com/flastats" target="_blank"> 
+							<i class="fa fa-facebook"></i></a>
+						</div>
+						 </div>		<!-- social bar -->								
+							</div><!-- /.navbar-collapse -->
+						</div> <!-- container da barra de nav -->
+					</nav>
+				</div>
+			</div>
+			<div class="container-fluid">
+			<div class="row">
+			<div class="row navegar" style="padding-top: 100px;"> 
+		<ol class="breadcrumb" style="background-color: rgba(0,0,0,0);">
+  <li><a href="index.html">Home</a></li>
+  <li class="active">Entenda as estatísticas</li>
+</ol>
+</div>
+				<div class="col-md-8 col-md-offset-2"> 
+					
+				<div class="explain">
+					<h1 style="text-align: center; padding-top: 10px"> Passe Chave </h1> 
+					<p>Um passe chave é o que deixa o jogador em condições de finalizar para o gol, ou cria uma jogada perigosa para a defesa adversária.</p>
+					<p>* Abaixo um passe de Zico na final do mundial contra o Liverpool (Aumente o volume para ouvir a narração)
+					<p><video autoplay loop poster="" id='exp1'>
+		<source src="imagens/zico.mp4" type="video/mp4">
+		</video></p>
+	<hr>
+					<h1 style="text-align: center;"> Lançamentos </h1> 
+					<p> O lançamento é um passe longo, como uma virada de bola, ou uma ligação direta entre defesa e ataque. Lançamentos podem ser importantes ao tirar o time de uma situação onde se encontra pressionado. </p>
+					<p>*Abaixo uma virada de jogo de Lionel Messi jogando pelo Barcelona.</p>
+					<p><video autoplay loop poster="" id='exp1'>
+		<source src="imagens/messi.mp4" type="video/mp4">
+		</video></p>
+				</div>
+				</div><!-- col8 -->
+			</div><!-- row -->
+			</div> <!-- container fluid -->
+	</body>
+	</html>

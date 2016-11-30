@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head lang="pt-br">
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/custom.css">
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,500,700' rel='stylesheet' type='text/css'>
+
+	<!-- Script jQuery -->
+	<script type="text/javascript" src="jquery.js"></script>
+
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<!-- Fim script -->
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$(window).resize(function() {
+   		 $('#rowhome, #rowhome2').height($(window).height());
+		});
+		$(window).trigger('resize');
+		})
+	</script>
+
+
+
+	<title> FlaStats | As estatísticas mais importantes do Rubro-Negro carioca </title>
+</head>
+<body>
+	
+	<!-- container principal -->
+	<div class="container-fluid">
+		<!-- navbar -->
+		<div class="row">
+			<div class="col-md-12">
+				<nav class="navbar navbar-default navbar-fixed-top">
+					<div class="container-fluid" style="padding: 0px">
+						<!-- Brand and toggle get grouped for better mobile display -->
+						<div class="navbar-header">
+							<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+								<span class="sr-only">Toggle navigation</span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+							</button>
+							<a class="navbar-brand" href="#">
+								<img alt="Brand" src="imagens/logosmall.png">
+							</a>
+						</div>
+
+						<!-- Collect the nav links, forms, and other content for toggling -->
+						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+							<ul class="nav navbar-nav">
+								<li class="hvr-overline-from-left"><a href="#">HOME <span class="sr-only">(current)</span></a></li>
+								<li class="hvr-overline-from-left"><a href="#">JOGOS</a></li>
+								<li class="hvr-overline-from-left"><a href="#">ENTENDA AS ESTATÍSTICAS</a></li>
+							</ul>								
+						</div><!-- /.navbar-collapse -->
+					</div> <!-- container da barra de nav -->
+				</nav>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-8" id='rowhome'> 
+		</div><!-- COL8 -->
+		<div class="col-md-4" id='rowhome2' > 
+			
+		</div><!-- COL 4 -->
+	</div> <!-- ROW -->
+
+</div> <!-- container principal-->
+
+</body>
+</html>

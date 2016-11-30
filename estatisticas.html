@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html>
+<head lang="pt-br">
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta property='og:title' content='Fla Stats | Principais estatísticas de passes do time do Flamengo' />
+	<meta property='og:url' content='http:www.flastats.com/estatisticas.html' />
+	<!-- <meta property='og:image' content='http://url-do-site/imagem.png'/> -->
+	<meta property='og:type' content='website' />
+	<meta property='og:site_name' content='Fla Stats' /> 
+	<meta name="description" content="Principais estatísticas de passes do time de futebol profissional do Flamengo, com gráficos bem explicados. ">
+	<meta name="keywords" content="Futebol, Scout, Estatísticas, Narração, Campeonatos, Time, Jogadores, Programação, Televisão, Brasileiro, Brasileirão, Copa do Brasil, Libertadores, Campeonato Carioca, Flamengo, Passes, Lançamentos, Passes Chave, Passes Decisivos, Passes Totais">
+	<meta name="robots" content="index, follow">
+
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript" charset="utf8" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" charset="utf8" src="js/jquery.dataTables.min.js"></script>
+	<script type="text/javascript" charset="utf8" src="js/jquery.circliful.js"></script>
+	<script type="text/javascript" charset="utf8" src="js/jquery.tooltipster.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/tooltipster.css">
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,500,700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" href="css/jquery.dataTables.min.css">
+	<link rel="stylesheet" type="text/css" href="css/jquery.circliful.css">
+	<link rel="stylesheet" type="text/css" href="css/custom.css">
+	<!-- Script jQuery -->
+
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+				$.get('getjogos.php', function (response)
+			{							 		
+				$("table#jogos.dataTable tbody").append(response);
+									
+			})
+
+
+			$( window ).scroll(function() {
+					var local = $( window ).scrollTop();
+					if ((local) < 30) 
+						{
+							$('#logoimg').slideDown();
+							$('#logoimg2').fadeOut(1);
+						}
+					else 
+					{
+					$('#logoimg').slideUp();					
+					$('#logoimg2').fadeIn(1500);
+					}
+				});
+
+			//plugin facebook
+(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v2.5";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+
+			$('.tooltip2').tooltipster();
+			(function($) {
+				$.fn.goTo = function() {
+					$('html, body').animate({
+						scrollTop: $(this).offset().top-50 + 'px'
+					}, 'slow');
+        return this; // for chaining...
+    }
+})(jQuery);
+
+$('#jogos').DataTable({
+	paging: false,
+	scrollY: 400,
+	scrollX: 400,
+	bSort : false
+});
+
+$('#jogadores').DataTable({
+	paging: false,
+	bSort : false
+
+});
+
+$(document).on('click','table#jogos.dataTable tbody tr', function(){
+
+	$( ".graf1" ).hide('slow');
+	$( ".graf2" ).hide('slow');
+	$( ".graf3" ).hide('slow');
+	var tabela_id_jogo = $(this).children().eq(0).text();
+				 // pega o primeiro td
+				 $.get(
+				 	'getnomes.php',
+				 	{what: tabela_id_jogo},
+				 	function (response)
+				 	{
+
+				 		if ($(".jogadores").css('display') == 'none')
+				 		{
+				 			$(".jogadores").show('slow', function(){
+				 				$("table#jogadores.dataTable tbody").children().remove();
+				 				$("table#jogadores.dataTable tbody").append(response);
+				 				$('.jogadores').goTo();
+							}); //show
+
+						}// if
+						else {
+							$( ".jogadores" ).hide('slow');
+							$( ".jogadores" ).show('slow', function()
+							{
+								$("table#jogadores.dataTable tbody").children().remove();
+								$("table#jogadores.dataTable tbody").append(response);
+								$('.jogadores').goTo();
+							}
+							); //show
+							} // else
+
+
+						}
+						)
+
+			}) //click tabela jogos
+
+$(document).on('click','table#jogadores.dataTable tbody tr', function(){
+	$('#nomegraf').goTo();
+	var nomedojogador = $(this).children().eq(0).text();
+	$("#nomegraf").text(nomedojogador);
+	$(".graf1, .graf2, .graf3").remove();
+	$("#pto").append("<div class='graf1' id='chart' > <h6>TOTAL DE PASSES CERTOS</h6><h5 id='h51'></h5></div>");
+	$("#pde").append("<div class='graf2' id='chart2' > <h6>PASSES CHAVE CERTOS</h6><h5 id='h52'></h5> </div>");
+	$("#plo").append("<div class='graf3' id='chart3' > <h6>LANÇAMENTOS</h6><h5 id='h53'></h5></div>");
+
+	$( ".graf1" ).toggle(2000);
+	$( ".graf2" ).toggle(2000);
+	$( ".graf3" ).toggle(2000);
+
+	var totalc = $(this).children().eq(1).text();
+	var totale = $(this).children().eq(2).text();
+	var total = parseInt(totalc) + parseInt(totale);
+	if(total == 0) {
+		pcttotal=0;
+		$("#h51").text("*Total de passes ainda não está disponível.");
+		}
+	else {
+		var pcttotal = (parseInt(totalc)/ total)*100;
+		$("#h51").text(totalc+" de "+total+" passes totais certos");
+	}
+
+	var decisivoc = $(this).children().eq(5).text();
+	var decisivoe = $(this).children().eq(6).text();
+	var totald = parseInt(decisivoc) + parseInt(decisivoe);
+	if(totald == 0){
+		pctdecisivo=0;
+		$("#h52").text("* "+nomedojogador+" não tentou passes chave nesta partida");
+	}
+	else{
+		var pctdecisivo = (parseInt(decisivoc)/ totald)*100;
+		$("#h52").text(decisivoc+" de " +totald +" passes chave certos");
+	}
+
+	var longoc = $(this).children().eq(3).text();
+	var longoe = $(this).children().eq(4).text();
+	var totall = parseInt(longoc) + parseInt(longoe);
+	if(totall==0) 
+	{
+		pctlongo = 0;
+		$("#h53").text("* "+nomedojogador+" não tentou lançamentos nesta partida");
+	}
+	else{
+		var pctlongo = (parseInt(longoc)/ totall)*100 ;
+		$("#h53").text(longoc+" de " +totall+ " lançamentos certos");
+	}
+
+
+
+	$("#chart").circliful({
+		animationStep: 5,
+		foregroundBorderWidth: 5,
+		backgroundBorderWidth: 15,
+		percent: pcttotal,
+		foregroundColor: 'green'
+
+	});
+	$("#chart2").circliful({
+		animationStep: 5,
+		foregroundBorderWidth: 5,
+		backgroundBorderWidth: 15,
+		percent: pctdecisivo,
+		foregroundColor: 'green'
+	});
+	$("#chart3").circliful({
+		animationStep: 5,
+		foregroundBorderWidth: 5,
+		backgroundBorderWidth: 15,
+		percent: pctlongo,
+		foregroundColor: 'green'
+	});
+
+})
+
+
+
+
+
+		}) // ready
+	</script>
+
+
+
+	<title>  Estatísticas de passes do Flamengo  | FlaStats </title>
+
+	<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-76145926-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</head>
+<body>
+
+	<!-- video -->
+	<video autoplay loop poster="" id="bgvid">
+		<source src="imagens/rj.mp4" type="video/mp4">
+		</video>
+		<!-- container principal -->
+		<div class="container-fluid">
+			<!-- navbar -->
+			<div class="row">
+				<div class="col-md-12">
+					<nav class="navbar navbar-default navbar-fixed-top">
+						<div class="container-fluid" style="padding: 0px">
+							<!-- Brand and toggle get grouped for better mobile display -->
+							<div class="navbar-header">
+								<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+									<span class="sr-only">Toggle navigation</span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+								</button>
+								<a class="navbar-brand" href="#">
+									<img id="logoimg" alt="Brand" src="imagens/logosmall.png">
+							<img id="logoimg2" alt="Brand" src="imagens/logosmall.png">
+								</a>
+							</div>
+
+							<!-- Collect the nav links, forms, and other content for toggling -->
+							<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+								<ul class="nav navbar-nav">
+									<li class="hvr-overline-from-left"><a href="index.html">HOME <span class="sr-only">(current)</span></a></li>
+									<li class="hvr-overline-from-left"><a href="noticias_flamengo.html">NOTÍCIAS/COLUNAS </a></li>
+										<li class="hvr-overline-from-left"><a href="estatisticas.html">ESTATÍSTICAS</a></li>
+									<li class="hvr-overline-from-left"><a href="entenda.html">ENTENDA AS ESTATÍSTICAS</a></li>
+								</ul>				
+								<div class="socialbar">
+						<div id="seguirtwitter">
+							<a href="http://www.twitter.com/flastats_web" target="_blank"> 
+							<i class="fa fa-twitter"></i></a>
+						</div>
+						<div id="seguirfacebook">
+							<a href="http://www.facebook.com/flastats" target="_blank"> 
+							<i class="fa fa-facebook"></i></a>
+						</div>
+						 </div>		<!-- social bar -->					
+							</div><!-- /.navbar-collapse -->
+						</div> <!-- container da barra de nav -->
+					</nav>
+				</div>
+			</div>
+
+			<div class="row">
+			<div class="row navegar" style="padding-top: 100px;"> 
+		<ol class="breadcrumb" style="background-color: rgba(0,0,0,0);">
+  <li><a href="index.html">Home</a></li>
+  <li class="active">Estatísticas de passes</li>
+</ol>
+<h1><p id="estatpass">Estatísticas de passes do Flamengo</p></h1>>
+</div>
+				<div class="col-md-4"> 
+					<br>
+
+					<div class="tabela">
+					<div class="tabelaheader"><p style="color:black; text-align: center; font-size: 20px; font-weight: 700;">Escolha um jogo abaixo</p></div>
+						<table id="jogos" class="table table-hover" cellspacing="0" width="100%">
+							<thead>
+								<tr>
+									<th>ID</th>
+									<th>Data</th>
+									<th>Jogo</th>
+								</tr>
+							</thead>
+							<tbody>
+								
+							</tbody>
+						</table>
+					</div> <!-- tabela de jogos -->
+				</div><!-- COL4 -->
+				<div class="col-md-5"> 
+					<br>
+					<div class="jogadores">
+					<div class="tabelaheader"><p style="color:black; text-align: center; font-size: 20px; font-weight: 700;">Clique em um jogador e veja seus gráficos</p> </div>
+						<table id="jogadores" class="table table-hover" cellspacing="0" width="100%">
+							<thead>
+								<tr>
+									<th>Jogadores</th>
+									<th class='tooltip2' title="Total de passes certos">TC</th>
+									<th class='tooltip2' title="Total de passes errados">TE</th>
+									<th class='tooltip2' title="Lançamentos certos">LC</th>
+									<th class='tooltip2' title="Lançamentos errados">LE</th>
+									<th class='tooltip2' title="Passes chave certos">CC</th>
+									<th class='tooltip2' title="Passes chave errados">CE</th>
+								</tr>
+							</thead>
+							<tbody>
+
+							</tbody>
+						</table>
+					</div>
+				</div><!-- COL 4 -->
+				<div class="col-md-3"> 
+						<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- fla-stats-estatisticas-lateral -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:250px;height:250px"
+     data-ad-client="ca-pub-7022559953706730"
+     data-ad-slot="6770710806"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script><br><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- fla-stats-estatisticas-lateral -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:250px;height:250px"
+     data-ad-client="ca-pub-7022559953706730"
+     data-ad-slot="6770710806"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+				</div><!-- COL 4 -->
+			</div> <!-- ROW -->
+			<div class="row graficoss" style="padding-top: 105px;">
+				<p id="nomegraf"> </p>
+				<div class="col-md-4" id= "pto"><div class="graf1" id="chart" > <h4>TOTAL DE PASSES</h4><h6 id='h61'></h6></div>
+			</div>
+			
+			<div class="col-md-4" id= "pde"><div class="graf2" id="chart2"><h4>PASSES CHAVE</h4><h6 id='h62'></h6></div></div>
+			
+			
+			<div class="col-md-4" id= "plo" ><div class="graf3" id="chart3"><h4>LANÇAMENTOS</h4><h6 id='h63'></h6></div></div></div>
+
+			<div class="row" style="padding-top: 50px;">
+		<div class="col-md-8 col-md-offset-2" id="fb"><div class="fb-comments" data-href="http://flastats.com/estatisticas.html" data-width="100%" data-numposts="5"></div></div>
+	</div>
+		</div> <!-- container principal-->
+	
+	</body>
+	</html>

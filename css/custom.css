@@ -1,0 +1,406 @@
+*
+{
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+}
+
+div#bs-example-navbar-collapse-1 
+{
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#0e0e0e+0,7d7e7d+76 */
+background: #0e0e0e; /* Old browsers */
+background: -moz-linear-gradient(top,  #0e0e0e 0%, #7d7e7d 76%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top,  #0e0e0e 0%,#7d7e7d 76%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #0e0e0e 20%,rgb(113, 39, 39) 80%);/* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0e0e0e', endColorstr='#7d7e7d',GradientType=0 ); /* IE6-9 */
+
+}
+#logo-navbar{
+
+}
+body 
+{
+  
+}
+
+.navbar-default .navbar-nav>li>a
+{
+  color: white;
+  text-decoration: none;
+}
+.navbar-default .navbar-nav>li>a:hover 
+{
+  color: white;
+}
+
+nav.navbar.navbar-default.navbar-fixed-top
+{
+  border-bottom-width: 0px;
+}
+
+.navbar-header
+{
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#0e0e0e+0,7d7e7d+76 */
+background: #0e0e0e; /* Old browsers */
+background: -moz-linear-gradient(top,  #0e0e0e 0%, #7d7e7d 76%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top,  #0e0e0e 0%,#7d7e7d 76%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #0e0e0e 20%,rgb(113, 39, 39) 80%);/* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0e0e0e', endColorstr='#7d7e7d',GradientType=0 ); /* IE6-9 */
+
+
+}
+
+/* Overline From Left */
+.hvr-overline-from-left {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -moz-osx-font-smoothing: grayscale;
+  position: relative;
+  overflow: hidden;
+}
+.hvr-overline-from-left:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  right: 100%;
+  top: 0;
+  background: red;
+  height: 4px;
+  -webkit-transition-property: right;
+  transition-property: right;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+.hvr-overline-from-left:hover:before, .hvr-overline-from-left:focus:before, .hvr-overline-from-left:active:before {
+  right: 0;
+}
+
+
+
+.texto-home
+{
+  font-size: 20px;
+  color: white;
+  padding-top: 30px;
+  text-align: center;
+
+}
+.texto-home>h1>a{
+  color: white;
+}
+
+a{
+  text-decoration: none;
+}
+
+.dataTables_empty
+{
+  display: none;
+}
+
+td{
+  text-align: center;
+}
+video#bgvid { 
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    background-size: cover; 
+    }
+
+
+  .dataTables_wrapper .dataTables_filter{
+    display: none;
+  }
+
+  .jogadores
+  {
+    display: none;
+  }
+
+.graf1, .graf2, .graf3
+{
+  display: none;
+  background-color: 
+  rgba(170,0,0,0.5);
+  border-radius: 10px 10px 20px 10px;
+  height: 300px;
+  width: 250px;
+}
+
+.tabela,
+.jogadores{
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 15px 15px 0px 0px;
+}
+
+table.dataTable tbody tr{
+  background-color: rgba(170,0,0,0.8);
+  color:white;
+  cursor: pointer;
+}
+
+table.dataTable tbody tr:hover{
+  background-color: rgba(170,0,0,0.8);
+  color:black;
+}
+
+thead{
+   color:red;
+}
+.dataTables_info
+{
+  display: none;
+}
+
+h6 {
+  color:white;
+  text-align: center;
+  padding-top: 2px;
+  font-size: 20px;
+}
+
+#nomegraf{
+  text-align: center;
+  color: white;
+  font-size: 40px;
+}
+h5 {
+  color:white;
+  text-align: center;
+}
+
+#fb
+{
+  background-color:  rgba(255,255,255,0.6);
+  border-radius: 15px 15px 0px 0px;
+}
+
+.explain{
+  background-color: rgba(170,0,0,0.7);
+  color: white;
+}
+#exp1
+,#exp2{
+  width: 100%;
+}
+
+.todosflamengo
+{
+  background-color: rgba(245, 248, 250, 0.90);
+  color:black;
+  font-size: 30px;
+  text-align: center;
+  
+  height: 70px;
+}
+.analise{
+  padding-top: 30px;
+  background-color: black;
+}
+.tabelajogos{
+  background-color: rgb(165, 4, 4);
+  border-radius: 15px 15px 15px 15px;
+}
+
+.jogoanalise{
+  
+  background-color: white;
+   border-radius: 15px 15px 15px 15px;
+   display: none;
+  padding-left: 10px;
+}
+
+
+#jogoanalisetopo
+{
+  padding-top: 20px;
+    text-align: center;
+    font-size: 25px;
+    font-weight: 800;
+    color: red;
+}
+#textoanalise{
+    text-indent: 32px;
+    padding-left: 15px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    color: rgb(121, 116, 116);
+    font-size: 12px;
+  }
+
+.noticias{
+  background-color: black;
+  min-height: 400px;
+  padding-top: 100px;
+}
+.titulonews>a{
+  font-weight: 700;
+  font-size: 15px;
+  color: red;
+  
+}
+.titulonewsmajor>a{
+font-weight: 700;
+  font-size: 25px;
+  color: red;
+}
+
+.titulonews, .titulonewsmajor{
+  padding-top: 5px;
+}
+.imgnews
+{
+  border-radius: 15px 15px 15px 15px;
+  transition: all 0.5s ease-in-out;
+  opacity: 0.8;
+}
+
+
+.imgnews:hover
+{
+-webkit-transform: scale3d(1.05,1.05,1);
+opacity: 1;
+}
+a {
+  text-decoration: none;
+}
+a:hover{
+  text-decoration: none;
+  cursor: pointer;
+}
+.noticiafull{
+  background-color: black;
+}
+
+div#titulonoticia {
+    color: red;
+    font-size: 30px;
+    font-weight: 700;
+}
+
+div#fontedata {
+    color: white;
+    font-size: 12px;
+}
+
+div#textonoticia {
+    color: white;
+    text-indent: 32px;
+}
+
+#ultimasdofla{
+  color:red;
+  font-size: 30px;
+  font-weight: 700;
+}
+
+#listadenoticias>p
+{
+  color:rgb(235, 251, 115);;
+}
+
+#listadenoticias>p>a
+{
+  color:white;
+}
+.navegar{
+  padding-left: 20px;
+  
+}
+
+.breadcrumb{
+  background-color: black;
+}
+#fichadojogo
+{
+  color: rgb(235, 251, 115);
+  font-size: 20px;
+}
+
+.jogoanalise:last-child{
+  display: block;
+}
+
+#rowhome {
+vertical-align: middle;
+}
+
+#logoimgdepois{
+  width: 70px;
+}
+
+#logoimg2{
+  display: none;
+  width: 70px;
+}
+
+.socialbar{  
+    width: 30%;
+    height: 50px;
+    float: right;
+   
+}
+
+#seguirtwitter,
+#seguirfacebook
+{
+    width: 40px;
+    height: 40px;
+    margin: 5px auto;
+    background-color: rgb(99, 39, 39);
+    border-radius: 20px;
+    text-align: center;
+    float: right;
+}
+
+.socialbar a {
+    text-decoration: none;
+    color: white !important;
+}
+
+.socialbar i {
+    font-size: 22px;
+    line-height: 40px;
+    color:white;
+}
+
+#seguirtwitter:hover {
+    transform: rotate(360deg);
+    transition: all 0.6s ease-in-out 0s;
+    background-color: #4099ff;
+}
+
+#seguirfacebook:hover {
+    transform: rotate(360deg);
+    transition: all 0.6s ease-in-out 0s;
+    background-color: #034F75;
+}
+
+p#estatpass {
+    color: white;
+    text-align: center;
+    font-size: 30px;
+    font-weight: 700;
+}
+
+h2#artesport {
+    color: rgb(235, 251, 115);
+    font-size: 20px;
+}
