@@ -1,10 +1,6 @@
 # FlaStats
 
-Portal de notícias sobre o Clube de Regatas do Flamengo.
-Utilizei principalmente como aprendizado para Bootstrap e Jquery.
-
-Front-End: HTML - CSS - Jquery - Bootstrap
-
-Back-End: PHP - MySQL
-
-O site está rodando em http://www.rherculano.hol.es/Flastats/ , porém sem atualizações. 
+Portal de notícias do Clube de Regatas do Flamengo. Desenvolvimento realizado principalmente como aprendizado para a biblioteca Jquery. O site conta com alguns plugins Jquery, como o dataTables e funções nativas do JavaScript, além de ser um site responsivo desenvolvido com Bootstrap.
+Tecnologias utilizadas: HTML - CSS - Jquery - Bootstrap - PHP - MySQL
+O site pode ser visualizado em:
+http://www.rherculano.hol.es/Flastats/ 
