@@ -7,7 +7,7 @@
 <body>
 <?php
 	include "valida_cookies.inc";
-	$mysqli = new mysqli("mysql.hostinger.com.br", "u858014573_rafsx", "14041404", "u858014573_rafsx");
+	$mysqli = new mysqli("localhost", "root", "", "flastats");
 if ($mysqli->connect_errno) {
     echo "Failed to connect to MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
 }

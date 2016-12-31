@@ -4,10 +4,10 @@
 
 $login= $_POST["login"];
 $senha= $_POST["senha"];
-$servidor ="mysql.hostinger.com.br";
-$usuario_bd = "u975631064_rafsx";
-$senha_bd= "AaAa14041404";
-$banco = "u975631064_flast";
+$servidor ="localhost";
+$usuario_bd = "root";
+$senha_bd= "";
+$banco = "flastats";
 
 $con = mysqli_connect($servidor, $usuario_bd, $senha_bd, $banco);
 
