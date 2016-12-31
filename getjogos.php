@@ -1,4 +1,4 @@
-
+testando
 <?php
 
 $mysqli = new mysqli("localhost", "root", "", "flastats");
