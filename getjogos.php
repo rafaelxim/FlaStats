@@ -1,4 +1,3 @@
-testando
 <?php
 
 $mysqli = new mysqli("localhost", "root", "", "flastats");
@@ -26,3 +25,4 @@ $stmt->bind_result($id, $data, $horario, $times);
  $stmt->close();
 
 ?>
+
