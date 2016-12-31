@@ -1,4 +1,4 @@
-
+testando
 <?php
 
 $mysqli = new mysqli("mysql.hostinger.com.br", "u858014573_rafsx", "14041404", "u858014573_rafsx");
